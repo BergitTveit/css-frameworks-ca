@@ -1,0 +1,146 @@
+<!-- The profile page should have a profile image, username, list of user posts, follow button and an area to display following/followers. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="../index/index.html">Summit Seekers</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../profile/index.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../feed/index.html">Summits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body text-center">
+                <img
+                  src="../assets/img/climber.jpg"
+                  class="rounded-circle img-fluid"
+                  alt="Profile Picture"
+                />
+                <h5 class="card-title mt-3">Bergit Tveit</h5>
+                <p class="card-text">Sports and trad climber.</p>
+                <button class="btn btn-primary">Follow</button>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-link">Following: 200</button>
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-link">Followers: 150</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">SUMMITS</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <div class="post">
+                    <h5 class="post-title">USKEDALEN</h5>
+                    <img
+                      src="../assets/img/wall-1.jpg"
+                      class="img-fluid"
+                      alt="Post Image"
+                    />
+                    <p class="post-content">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Totam, tenetur! Voluptatem veritatis odit ex delectus,
+                      expedita quia mollitia debitis beatae modi autem itaque
+                      optio, ad porro, non accusantium veniam quis!
+                    </p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="post">
+                    <h5 class="post-title">HODNAFJELL</h5>
+                    <img
+                      src="../assets/img/climb-outdoor.jpg"
+                      class="img-fluid"
+                      alt="Post Image"
+                    />
+                    <p class="post-content">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Non vero dolore doloremque quis ex fugit facilis eius
+                      repellendus est, recusandae temporibus fuga possimus,
+                      culpa laboriosam beatae, tempore fugiat reiciendis sed.
+                    </p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="post">
+                    <h5 class="post-title">HÆGEFJELL</h5>
+                    <img
+                      src="../assets/img/boulder.jpg"
+                      class="img-fluid"
+                      alt="Post Image"
+                    />
+                    <p class="post-content">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nostrum aut perspiciatis alias doloribus rerum sunt
+                      consequuntur aperiam autem, expedita aliquam, voluptatibus
+                      dignissimos vel incidunt distinctio consequatur rem quo,
+                      explicabo sed.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <div class="container"></div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
