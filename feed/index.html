@@ -5,20 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile Page</title>
     <link rel="shortcut icon" href="../assets/img/logo.png" type="image/png" />
-    <link
-      rel="stylesheet"
-      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <script
-      src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-      defer
-    ></script>
+    <link rel="stylesheet" href="../dist/css/custom.css" />
   </head>
   <body>
     <header>
       <div><a href="index.html"></a></div>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container">
           <a class="navbar-brand" href="../index/index.html">Summit Seekers</a>
           <button
@@ -74,20 +67,18 @@
               </div>
             </form>
           </div>
-        </div>
-      </div>
 
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <label for="sort-select" class="visually-hidden">Sort By:</label>
-            <select class="form-select" id="sort-select">
-              <option value="date">Date</option>
-              <option value="grade">Crag</option>
-              <option value="grade">Grade</option>
-              <option value="sport">Sport</option>
-              <option value="trad">Trad</option>
-            </select>
+          <div class="col-md-6 mt-3 mt-md-0">
+            <div class="col-12">
+              <label for="sort-select" class="visually-hidden">Sort By:</label>
+              <select class="form-select" id="sort-select">
+                <option value="date">Date</option>
+                <option value="grade">Crag</option>
+                <option value="grade">Grade</option>
+                <option value="sport">Sport</option>
+                <option value="trad">Trad</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
