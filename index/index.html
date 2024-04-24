@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Summet Seekers</title>
+
     <link rel="shortcut icon" href="../assets/img/logo.png" type="image/png" />
 
     <link rel="stylesheet" href="../dist/css/custom.css" />
+    <script type="module" src="../js/utils/validate_user.mjs"></script>
   </head>
   <body>
     <header>
@@ -47,18 +49,20 @@
             <div class="col-md-6">
               <div class="card shadow">
                 <div class="card-body">
-                  <form action="/profile" aria-label="Login Form">
+                  <form
+                    action="/profile"
+                    id="loginForm"
+                    aria-label="Login Form"
+                  >
                     <div class="form-group mb-3">
-                      <label for="username" class="visually-hidden"
-                        >Username</label
-                      >
+                      <label for="email" class="visually-hidden">email</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="username"
-                        placeholder="Enter username"
+                        id="email"
+                        placeholder="Enter email"
                         required
-                        aria-label="Username"
+                        aria-label="email"
                         aria-required="true"
                       />
                     </div>
