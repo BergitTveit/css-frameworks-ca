@@ -15,7 +15,7 @@ export function validateEmail(email) {
 
   return true;
 }
-
+// Make text underneath input field instead of alert, if input after @ does not start matching the required email.
 export function validatePassword(password) {
   if (password.trim() === "") {
     alert("Please enter your password.");
@@ -27,3 +27,4 @@ export function validatePassword(password) {
   }
   return true;
 }
+// Make text underneath input if input does not contain the correct amount of letters, eg. countdown.
