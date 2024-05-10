@@ -38,23 +38,29 @@ export async function loginUser(email, password) {
     return profile;
   }
 
-  throw new Error("Could not login the account");
+  throw new Error(
+    "Could not login the account",
+    "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  );
 }
+
 export async function onAuth(event) {
-  console.log("hi");
+  console.log("start onAuth");
   event.preventDefault();
   const email = event.target.email.value;
   const password = event.target.password.value;
   const name = event.target.name.value;
+  document.getElementById("loginButton").dataset.auth = "login";
 
   if (event.submitter.dataset.auth === "login") {
-    await login(email, password);
+    await loginUser(email, password);
   } else {
     await registerUser(name, email, password);
     await loginUser(email, password);
   }
-  const posts = await getPosts();
-  console.log(posts);
+  // const posts = await getPosts();
+  // console.log(posts);
+  console.log("LOGGED IN");
 }
 
 export function setAuthListener() {
