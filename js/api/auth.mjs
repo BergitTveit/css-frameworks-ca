@@ -3,8 +3,20 @@ export const API_AUTH = "/auth";
 export const API_REGISTER = "/register";
 export const API_LOGIN = "/login";
 export const API_KEY_URL = "/create-api-key";
+export const API_KEY = "a356de3a-416e-4828-8e8a-e5eeb22f3eb6";
 
 console.log("hello");
+export function save(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+export function load(key) {
+  const token = localStorage.getItem(key);
+  if (!token) {
+    throw new Error("Token not found in localStorage");
+  }
+  return JSON.parse(token);
+}
 
 export async function registerUser(name, email, password) {
   const response = await fetch(API_BASE + API_AUTH + API_REGISTER, {
@@ -38,10 +50,7 @@ export async function loginUser(email, password) {
     return profile;
   }
 
-  throw new Error(
-    "Could not login the account",
-    "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-  );
+  throw new Error("Could not login the account");
 }
 
 export async function onAuth(event) {
@@ -58,9 +67,10 @@ export async function onAuth(event) {
     await registerUser(name, email, password);
     await loginUser(email, password);
   }
-  // const posts = await getPosts();
-  // console.log(posts);
-  console.log("LOGGED IN");
+
+  console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+  const posts = await getPosts();
+  console.log(posts);
 }
 
 export function setAuthListener() {
@@ -69,26 +79,8 @@ export function setAuthListener() {
 
 setAuthListener();
 
-//MOVE TO USER.mjs ?
-
-// export async function getPosts() {
-//   const response = await fetch(API_BASE + "social/posts", {
-//     headers: {
-//       Authorization: `Bearer ${load("token")}`,
-//     },
-//   });
-//   return await response.json();
-// }
-
-// export function save(key, value) {
-//   localStorage.setItem(key, JSON.stringify(value));
-// }
-// export function load(key) {
-//   return JSON.parse(localStorage.getItem(key));
-// }
-
 // export async function getAPIKey() {
-//   // console.log(`Authorization header: Bearer ${load("token")}`);
+//   console.log(`Authorization header: Bearer ${load("token")}`);
 //   const response = await fetch(API_BASE + API_AUTH + API_KEY_URL, {
 //     method: "POST",
 //     headers: {
@@ -109,4 +101,16 @@ setAuthListener();
 //   throw new Error("Could not register for an API key!!!!");
 // }
 
-// getAPIKey().then(console.log("hello"));
+// getAPIKey().then(console.log("hello API KEY"));
+
+export async function getPosts() {
+  console.log("GETPOST");
+  const response = await fetch(API_BASE + "/social/posts", {
+    headers: {
+      Authorization: `Bearer ${load("token")}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
+
+  return await response.json();
+}

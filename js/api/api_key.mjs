@@ -1,7 +1,8 @@
+import {} from "../utils/contants.mjs";
 
-import {} from '../utils/contants.mjs';
-
-export function save
+export function save(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
 
 export function load(key) {
   const token = localStorage.getItem(key);
