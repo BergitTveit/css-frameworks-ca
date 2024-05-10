@@ -41,3 +41,5 @@ export async function postDetailPage() {
     postDetailsContainer.innerHTML = "Unable to fetch post details.";
   }
 }
+
+//remember about JS DOCS
