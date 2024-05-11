@@ -13,7 +13,11 @@ export async function loginUser(email, password) {
   if (response.ok) {
     const { accessToken, ...profile } = (await response.json()).data;
     save("token", accessToken);
+
     save("profile", profile);
+
+    // window.location.href = "../../profile/index.html";
+
     return profile;
   }
 
