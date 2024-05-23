@@ -8,3 +8,5 @@ export async function getPosts() {
 
   return await response.json();
 }
+
+await getPosts();
