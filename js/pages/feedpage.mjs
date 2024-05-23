@@ -9,6 +9,11 @@ export function displayPostFeed(posts) {
     const titleElement = document.createElement("h2");
     titleElement.textContent = post.title;
 
+    const titleLink = document.createElement("a");
+    titleLink.href = `../single_post/index.html?id=${post.id}`;
+    titleLink.textContent = post.title;
+    titleLink.classList.add("post-title", "h2", "text-dark", "fw-bold");
+
     const bodyElement = document.createElement("p");
     bodyElement.textContent = post.body || "No body text available";
 
@@ -16,36 +21,36 @@ export function displayPostFeed(posts) {
     tagsElement.textContent =
       "Tags: " + (post.tags.length > 0 ? post.tags.join(", ") : "No tags");
 
-    const mediaElement = document.createElement("img");
-    if (post.media) {
-      mediaElement.src = post.media.url;
-      mediaElement.alt = post.media.alt || "Post media";
-    } else {
-      mediaElement.style.display = "none";
-    }
+    // const mediaElement = document.createElement("img");
+    // if (post.media) {
+    //   mediaElement.src = post.media.url;
+    //   mediaElement.alt = post.media.alt || "Post media";
+    // } else {
+    //   mediaElement.style.display = "none";
+    // }
 
-    const createdElement = document.createElement("p");
-    createdElement.textContent =
-      "Created: " + new Date(post.created).toLocaleString();
+    // const createdElement = document.createElement("p");
+    // createdElement.textContent =
+    //   "Created: " + new Date(post.created).toLocaleString();
 
-    const updatedElement = document.createElement("p");
-    updatedElement.textContent =
-      "Last updated: " + new Date(post.updated).toLocaleString();
+    // const updatedElement = document.createElement("p");
+    // updatedElement.textContent =
+    //   "Last updated: " + new Date(post.updated).toLocaleString();
 
-    const commentsElement = document.createElement("p");
-    commentsElement.textContent = "Comments: " + post._count.comments;
+    // const commentsElement = document.createElement("p");
+    // commentsElement.textContent = "Comments: " + post._count.comments;
 
-    const reactionsElement = document.createElement("p");
-    reactionsElement.textContent = "Reactions: " + post._count.reactions;
+    // const reactionsElement = document.createElement("p");
+    // reactionsElement.textContent = "Reactions: " + post._count.reactions;
 
-    postElement.appendChild(titleElement);
+    postElement.appendChild(titleLink);
     postElement.appendChild(bodyElement);
     postElement.appendChild(tagsElement);
-    postElement.appendChild(mediaElement);
-    postElement.appendChild(createdElement);
-    postElement.appendChild(updatedElement);
-    postElement.appendChild(commentsElement);
-    postElement.appendChild(reactionsElement);
+    // postElement.appendChild(mediaElement);
+    // postElement.appendChild(createdElement);
+    // postElement.appendChild(updatedElement);
+    // postElement.appendChild(commentsElement);
+    // postElement.appendChild(reactionsElement);
 
     feedContainer.appendChild(postElement);
   });
