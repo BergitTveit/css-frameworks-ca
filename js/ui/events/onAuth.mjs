@@ -1,8 +1,8 @@
 import { loginUser } from "../../api/auth/login_user.mjs";
 import { registerUser } from "../../api/auth/register_user.mjs";
-// import { API_BASE, API_SOCIAL } from "../../api/constants.mjs";
+import { API_BASE, API_SOCIAL } from "../../api/constants.mjs";
 
-// import { getPosts } from "../../api/posts/get.mjs";
+import { getPosts } from "../../api/posts/get.mjs";
 
 export async function onAuth(event) {
   event.preventDefault();
@@ -18,5 +18,5 @@ export async function onAuth(event) {
     await loginUser(email, password);
   }
 
-  // await getPosts();
+  await getPosts();
 }

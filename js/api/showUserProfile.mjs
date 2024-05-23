@@ -1,4 +1,4 @@
-import { displayUserProfile } from "../components/profile.mjs";
+import { displayUserProfile } from "../pages/profilepage.mjs";
 import { load } from "../storage/load.mjs";
 import { fetchUserProfile } from "./fetch_user.mjs";
 
