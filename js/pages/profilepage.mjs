@@ -13,11 +13,6 @@ export function displayUserProfile(userInfo) {
   avatarImage.alt = userInfo.data.avatar.alt;
   avatarImage.style.width = "100px";
 
-  // const bannerImage = document.createElement("img");
-  // bannerImage.src = userInfo.data.banner.url;
-  // bannerImage.alt = userInfo.data.banner.alt;
-  // bannerImage.style.width = "100%";
-
   const counts = userInfo.data._count;
   const countsElement = document.createElement("div");
   countsElement.innerHTML = `
@@ -31,7 +26,5 @@ export function displayUserProfile(userInfo) {
   profileContainer.appendChild(userEmailElement);
 
   profileContainer.appendChild(document.createElement("br"));
-  // profileContainer.appendChild(bannerImage);
-  // profileContainer.appendChild(document.createElement("br"));
   profileContainer.appendChild(countsElement);
 }
