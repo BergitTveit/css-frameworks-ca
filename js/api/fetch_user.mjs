@@ -18,11 +18,7 @@ export async function fetchUserProfile(name) {
     }
   } catch (error) {
     await alert("Failed to fetch user profile");
-    if (name) {
-      window.location.href = `/index/index.html?name=${name}`;
-    } else {
-      window.location.href = `/index/index.html`;
-    }
+
     throw error;
   }
 
@@ -33,22 +29,35 @@ export function displayUserProfile(userInfo) {
   const userNameElement = document.getElementById("username");
   const userEmailElement = document.getElementById("useremail");
 
-  userNameElement.textContent = userInfo.name;
-  userEmailElement.textContent = userInfo.email;
+  userNameElement.innerHTML = userInfo.data.name;
+  userEmailElement.textContent = userInfo.data.email;
 }
 
-async function showUserProfile() {
+async function showUserProfile(profileName) {
   try {
-    var profile = load("profile");
-    console.log(profile);
     const urlParams = new URLSearchParams(window.location.search);
-    const userName = urlParams.get("name");
-    const userInfo = await fetchUserProfile(userName);
-    displayUserInfo(userInfo);
+    const profileName = urlParams.get("name");
+
+    if (profileName) {
+      var apiProfile = await fetchUserProfile(profileName);
+      displayUserProfile(apiProfile);
+    } else {
+      var profile = load("profile");
+      var apiProfile = await fetchUserProfile(profile.name);
+
+      displayUserProfile(apiProfile);
+    }
   } catch (error) {
     console.error("Error:", error.message);
-    // Handle error, e.g., show error message to the user
+    if (name) {
+      window.location.href = `/index/index.html?name=${name}`;
+    } else {
+      window.location.href = `/index/index.html`;
+    }
   }
 }
 
-await showUserProfile();
+const urlParams = new URLSearchParams(window.location.search);
+const profileName = urlParams.get("name");
+
+await showUserProfile(profileName);

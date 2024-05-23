@@ -1,6 +1,5 @@
 import { save } from "../../storage/save.mjs";
 import { API_AUTH, API_BASE, API_LOGIN } from "../constants.mjs";
-import { fetchUserProfile } from "../fetch_user.mjs";
 
 export async function loginUser(email, password) {
   const response = await fetch(API_BASE + API_AUTH + API_LOGIN, {
@@ -17,6 +16,12 @@ export async function loginUser(email, password) {
     save("token", accessToken);
     save("profile", profile);
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const profileName = urlParams.get("name");
+    if (profileName) {
+      window.location.href = `../../profile/index.html?name=${profileName}`;
+      return;
+    }
     window.location.href = "../../profile/index.html";
 
     return profile;
