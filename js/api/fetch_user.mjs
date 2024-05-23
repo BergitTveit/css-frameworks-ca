@@ -1,5 +1,5 @@
 import { load } from "../storage/load.mjs";
-import { API_BASE, API_SOCIAL } from "./constants.mjs";
+
 import { headers } from "./headers.mjs";
 
 export async function fetchUserProfile(name) {
@@ -26,11 +26,17 @@ export async function fetchUserProfile(name) {
 }
 
 export function displayUserProfile(userInfo) {
-  const userNameElement = document.getElementById("username");
-  const userEmailElement = document.getElementById("useremail");
+  const profileContainer = document.getElementsByClassName("profileContainer");
+  profileContainer.innerHTML = "";
 
+  const userNameElement = document.createElement("h1");
   userNameElement.textContent = userInfo.data.name;
+
+  const userEmailElement = document.createElement("p");
   userEmailElement.textContent = userInfo.data.email;
+
+  profileContainer.appendChild(userNameElement);
+  profileContainer.appendChild(userEmailElement);
 }
 
 async function showUserProfile(profileName) {
