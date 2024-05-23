@@ -29,7 +29,7 @@ export function displayUserProfile(userInfo) {
   const userNameElement = document.getElementById("username");
   const userEmailElement = document.getElementById("useremail");
 
-  userNameElement.innerHTML = userInfo.data.name;
+  userNameElement.textContent = userInfo.data.name;
   userEmailElement.textContent = userInfo.data.email;
 }
 
