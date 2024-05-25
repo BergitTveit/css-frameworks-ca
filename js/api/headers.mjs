@@ -5,7 +5,7 @@ export function headers(hasBody = false) {
   const headers = new Headers();
   const token = load("token");
 
-  console.log("TOKEN: ", token, " KEY: ", API_KEY, " HAS BODY ", hasBody);
+  // console.log("TOKEN: ", token, " KEY: ", API_KEY, " HAS BODY ", hasBody);
 
   if (token) {
     headers.append("Authorization", `Bearer ${token}`);

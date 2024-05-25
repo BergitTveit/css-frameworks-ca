@@ -5,8 +5,9 @@ export async function getPosts() {
   const response = await fetch(API_BASE + API_POSTS, {
     headers: headers(),
   });
+  const result = await response.json();
 
-  return await response.json();
+  return result.data ? result.data : [];
 }
 
 await getPosts();
