@@ -1,3 +1,5 @@
+import { deletePostHandler } from "./deletePostHandler.mjs";
+
 export function displayPostFeed(posts) {
   const feedContainer = document.getElementById("feedContainer");
   feedContainer.innerHTML = "";
@@ -21,6 +23,9 @@ export function displayPostFeed(posts) {
     tagsElement.textContent =
       "Tags: " + (post.tags.length > 0 ? post.tags.join(", ") : "No tags");
 
+    postElement.addEventListener("click", (event) => {
+      deletePostHandler(event, post);
+    });
     // const mediaElement = document.createElement("img");
     // if (post.media) {
     //   mediaElement.src = post.media.url;
