@@ -14,3 +14,18 @@ export async function fetchPostsSortedByDate(amount) {
     throw error;
   }
 }
+
+document
+  .getElementById("sort-select")
+  .addEventListener("change", async function () {
+    const selectedValue = this.value;
+    let sortedPosts;
+
+    switch (selectedValue) {
+      case "date":
+        sortedPosts = await fetchPostsSortedByDate(10);
+        break;
+    }
+
+    console.log(sortedPosts);
+  });

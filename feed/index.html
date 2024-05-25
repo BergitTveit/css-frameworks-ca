@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../dist/css/custom.css" />
     <script type="module" src="../js/api/showPostFeed.mjs"></script>
     <script type="module" src="../js/api/search.mjs"></script>
+    <script type="module" src="../js/api/sortedbydate.mjs"></script>
   </head>
   <body>
     <header>
@@ -70,19 +71,20 @@
               </div>
             </form>
           </div>
-          <!-- 
+
           <div class="col-md-6 mt-3 mt-md-0">
             <div class="col-12">
               <label for="sort-select" class="visually-hidden">Sort By:</label>
               <select class="form-select" id="sort-select">
+                <option value="grade">Filter</option>
                 <option value="date">Date</option>
-                <option value="grade">Crag</option>
+
                 <option value="grade">Grade</option>
                 <option value="sport">Sport</option>
                 <option value="trad">Trad</option>
               </select>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
       <div class="container mt-5">
