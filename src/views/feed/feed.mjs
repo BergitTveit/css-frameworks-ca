@@ -23,7 +23,6 @@ async function addevents() {
   const searchForm = document.getElementById("search-form");
   const searchInput = document.getElementById("search-input");
 
-  //add search event
   searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -38,12 +37,11 @@ async function addevents() {
       await showPostFeed();
     }
   });
-  //add filter event
+
   document
     .getElementById("sort-select")
     .addEventListener("change", displayPostsSorted);
 
-  //add delete post event
   feedContainer.addEventListener("click", async (event) => {
     if (!event.target) {
       return;
