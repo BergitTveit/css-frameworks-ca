@@ -9,7 +9,6 @@ export async function loginUser(email, password) {
     method: "POST",
     body: JSON.stringify({ email, password }),
   });
-  console.log(response);
 
   if (response.ok) {
     const { accessToken, ...profile } = (await response.json()).data;

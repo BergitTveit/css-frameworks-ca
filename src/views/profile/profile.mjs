@@ -1,4 +1,3 @@
-// import { displayUserProfile } from "../../../js/pages/profile/profilepage.mjs";
 import { load } from "../../storage/load.mjs";
 import { getProfile } from "../../api/profile/getProfile.mjs";
 
