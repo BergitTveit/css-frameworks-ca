@@ -1,13 +1,8 @@
-import { getPostById, getQueryParams } from "../../api/posts/get.mjs";
-
-
+import { getPostById } from "../../api/posts/get.mjs";
 
 async function displayPostDetails() {
-
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
-
-
 
   const post = await getPostById(id);
 
