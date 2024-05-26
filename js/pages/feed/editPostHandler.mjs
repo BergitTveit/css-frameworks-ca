@@ -1,17 +1,8 @@
 import { editPost } from "../../components/editPost.mjs";
 import { showPostFeed } from "./showPosts.mjs";
 
-// export async function editPostHandler(event, post) {
-//   event.preventDefault();
-
-//   await editPost(post.id);
-
-//   await showPostFeed();
-// }
-
 export function editPostHandler(event) {
   event.preventDefault();
-  const editButton = event.target;
 
   const postElement = event.target.closest(".post");
 
@@ -21,27 +12,21 @@ export function editPostHandler(event) {
   }
 
   const postId = postElement.dataset.postId;
-  console.log("WITHIN EDITHANDLER ID : ", postId);
-
-  console.log("PostELEMENT", postElement);
+  let postTitleElement = null;
+  let postBodyElement = null;
+  let postMediaElement = null;
   try {
-    const postBodyElement = postElement.querySelector("p");
-    const postTagsElement = postElement.querySelector(".tags");
-    const postMediaElement = postElement.querySelector("img");
+    postTitleElement = postElement.querySelector(".post-title");
+    postBodyElement = postElement.querySelector("p");
+    postMediaElement = postElement.querySelector("img");
 
     console.log("Post title element:", postTitleElement);
     console.log("Post body element:", postBodyElement);
-    console.log("Post tags element:", postTagsElement);
     console.log("Post media element:", postMediaElement);
   } catch (error) {
     console.error("Error accessing Post Elements:", error);
   }
-  if (
-    !postTitleElement ||
-    !postBodyElement ||
-    !postTagsElement ||
-    !postMediaElement
-  ) {
+  if (!postTitleElement || !postBodyElement || !postMediaElement) {
     console.error("One or more post elements not found.");
     return;
   }
@@ -53,21 +38,16 @@ export function editPostHandler(event) {
 
   const titleInput = document.createElement("input");
   titleInput.type = "text";
-  titleInput.value = postTitle;
+  titleInput.value = postTitleElement.textContent;
   titleInput.name = "title";
 
   const bodyInput = document.createElement("textarea");
-  bodyInput.value = postBody;
+  bodyInput.value = postBodyElement.textContent;
   bodyInput.name = "body";
-
-  const tagsInput = document.createElement("input");
-  tagsInput.type = "text";
-  tagsInput.value = postTags;
-  tagsInput.name = "tags";
 
   const mediaInput = document.createElement("input");
   mediaInput.type = "text";
-  mediaInput.value = postMedia;
+  mediaInput.value = postMediaElement.src;
   mediaInput.name = "media";
 
   const submitButton = document.createElement("button");
@@ -76,7 +56,6 @@ export function editPostHandler(event) {
 
   editForm.appendChild(titleInput);
   editForm.appendChild(bodyInput);
-  editForm.appendChild(tagsInput);
   editForm.appendChild(mediaInput);
   editForm.appendChild(submitButton);
 
@@ -85,12 +64,20 @@ export function editPostHandler(event) {
     const updatedData = {
       title: titleInput.value,
       body: bodyInput.value,
-      tags: tagsInput.value.split(",").map((tag) => tag.trim()),
+      tags: ["test-tag1", "test-tag2"],
       media: {
         url: mediaInput.value,
+        alt: "Alt text for testing",
       },
     };
 
+    if (mediaInput.value !== "") {
+      updatedData.media = {
+        url: mediaInput.value,
+        alt: "Alt text for testing",
+      };
+    }
+    console.log("UPDATED DATA", updatedData);
     await editPost(postId, updatedData);
     await showPostFeed();
   });

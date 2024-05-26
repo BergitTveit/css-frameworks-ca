@@ -20,12 +20,13 @@ async function addevents() {
 
   const feedContainer = document.getElementById("feedContainer");
 
-  feedContainer.addEventListener("click", (event) => {
+  feedContainer.addEventListener("click", async (event) => {
     if (!event.target) {
       return;
     }
+    const deleteButton = event.target.closest(".delete-post-button");
 
-    if (event.target.matches("button#delete-post-button")) {
+    if (deleteButton) {
       event.stopPropagation();
       const postElement = event.target.closest(".post");
       if (postElement) {
@@ -33,14 +34,9 @@ async function addevents() {
         deletePostHandler(event, { id: postId });
       }
     }
-  });
 
-  feedContainer.addEventListener("click", (event) => {
-    if (!event.target) {
-      return;
-    }
-
-    if (event.target.matches("button#edit-post-button")) {
+    const editButton = event.target.closest(".edit-post-button");
+    if (editButton) {
       event.stopPropagation();
       editPostHandler(event);
     }
