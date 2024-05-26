@@ -25,24 +25,3 @@ export async function fetchPostsAccordingToSearch(searchText) {
     throw error;
   }
 }
-
-// document.addEventListener("DOMContentLoaded", async () => {
-
-// if (!searchForm) {
-//   console.error("Search form not found");
-//   return;
-// }
-
-// const savedSearchQuery = localStorage.getItem("searchQuery");
-
-// if (savedSearchQuery) {
-//   searchInput.value = savedSearchQuery;
-// }
-// const searchText = searchInput.value.trim();
-
-// if (searchText) {
-//   const filteredPosts = await fetchPostsAccordingToSearch(searchText);
-//   console.log("Filtered Posts for search:", filteredPosts);
-// }
-
-// });
