@@ -26,37 +26,29 @@ export function displayPostFeed(posts) {
     postElement.addEventListener("click", (event) => {
       deletePostHandler(event, post);
     });
-    // const mediaElement = document.createElement("img");
-    // if (post.media) {
-    //   mediaElement.src = post.media.url;
-    //   mediaElement.alt = post.media.alt || "Post media";
-    // } else {
-    //   mediaElement.style.display = "none";
-    // }
+    const mediaElement = document.createElement("img");
+    if (post.media) {
+      mediaElement.src = post.media.url;
+      mediaElement.alt = post.media.alt || "Post media";
+    } else {
+      mediaElement.style.display = "none";
+    }
 
-    // const createdElement = document.createElement("p");
-    // createdElement.textContent =
-    //   "Created: " + new Date(post.created).toLocaleString();
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete Post";
+    deleteButton.id = "delete-post-button";
 
-    // const updatedElement = document.createElement("p");
-    // updatedElement.textContent =
-    //   "Last updated: " + new Date(post.updated).toLocaleString();
-
-    // const commentsElement = document.createElement("p");
-    // commentsElement.textContent = "Comments: " + post._count.comments;
-
-    // const reactionsElement = document.createElement("p");
-    // reactionsElement.textContent = "Reactions: " + post._count.reactions;
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit Post";
+    editButton.id = "edit-post-button";
 
     postElement.appendChild(titleLink);
     postElement.appendChild(bodyElement);
     postElement.appendChild(tagsElement);
-    // postElement.appendChild(mediaElement);
-    // postElement.appendChild(createdElement);
-    // postElement.appendChild(updatedElement);
-    // postElement.appendChild(commentsElement);
-    // postElement.appendChild(reactionsElement);
+    postElement.appendChild(mediaElement);
 
+    postElement.append(editButton);
+    postElement.append(deleteButton);
     feedContainer.appendChild(postElement);
   });
 }

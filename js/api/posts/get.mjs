@@ -9,11 +9,6 @@ export async function getPosts() {
 
   return result.data ? result.data : [];
 }
-export async function deletePost(postId) {
-  //todo
-  console.log("todo");
-}
-await getPosts();
 
 export function getQueryParams() {
   const params = new URLSearchParams(window.location.search);

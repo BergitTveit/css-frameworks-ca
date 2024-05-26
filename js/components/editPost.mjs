@@ -1,7 +1,7 @@
 import { getPosts } from "../api/posts/get.mjs";
 
-export async function deletePost(postId) {
+export async function editPost(postId) {
   //todo
-  console.log("todo DELETE POST");
+  console.log("todo EDIT POST");
 }
 await getPosts();
