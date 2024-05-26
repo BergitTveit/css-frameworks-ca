@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/png" />
+    <link rel="stylesheet" href="../../dist/css/custom.css" />
+    <script type="module" src="../../src/views/feed/feed.mjs"></script>
+  </head>
+  <body>
+    <header>
+      <div><a href="index.html"></a></div>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="../index/index.html">Summit Seekers</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../profile/index.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../feed/index.html">Summits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Create a New Post</h1>
+      <form id="createPostForm">
+        <div>
+          <label for="title" class="bg-primary">Title (required):</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div>
+          <label for="body" class="bg-primary">Body:</label>
+          <textarea id="body" name="body"></textarea>
+        </div>
+
+        <div>
+          <label for="mediaUrl " class="bg-primary">Media URL:</label>
+          <input type="url" id="mediaUrl" name="mediaUrl" />
+        </div>
+
+        <button type="submit">Create Post</button>
+      </form>
+
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form id="search-form" class="form-inline">
+              <div class="input-group">
+                <input
+                  id="search-input"
+                  type="text"
+                  class="form-control"
+                  placeholder="Search..."
+                  aria-label="Search"
+                  aria-describedby="button-addon2"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-primary"
+                    type="submit"
+                    id="search-button"
+                  >
+                    Search Post
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6 mt-3 mt-md-0">
+            <div class="col-12">
+              <label for="sort-select" class="visually-hidden">Sort By:</label>
+              <select class="form-select" id="sort-select">
+                <option value="">Filter</option>
+                <option value="date">Date</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div id="feedContainer" class="bg-primary"></div>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
