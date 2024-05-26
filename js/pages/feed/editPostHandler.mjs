@@ -61,22 +61,47 @@ export function editPostHandler(event) {
 
   editForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    const titleValue = titleInput.value.trim();
+    const bodyValue = bodyInput.value.trim();
+    const mediaUrlValue = mediaInput.value.trim();
+
+    if (!titleValue || !bodyValue) {
+      console.error("Title and body are required.");
+      return;
+    }
+
     const updatedData = {
-      title: titleInput.value,
-      body: bodyInput.value,
+      title: titleValue,
+      body: bodyValue,
       tags: ["test-tag1", "test-tag2"],
-      media: {
-        url: mediaInput.value,
-        alt: "Alt text for testing",
-      },
+      media: null,
     };
 
-    if (mediaInput.value !== "") {
+    if (mediaUrlValue) {
       updatedData.media = {
-        url: mediaInput.value,
+        url: mediaUrlValue,
         alt: "Alt text for testing",
       };
     }
+
+    console.log("Type of updatedData:", typeof updatedData);
+
+    // Log the type of each property inside updatedData
+    console.log("Type of title:", typeof updatedData.title);
+    console.log("Type of body:", typeof updatedData.body);
+    console.log(
+      "Type of tags:",
+      Array.isArray(updatedData.tags) ? "Array" : typeof updatedData.tags
+    );
+    console.log("Type of media:", typeof updatedData.media);
+
+    // If media is an object, log the types of its properties
+    if (updatedData.media && typeof updatedData.media === "object") {
+      console.log("Type of media.url:", typeof updatedData.media.url);
+      console.log("Type of media.alt:", typeof updatedData.media.alt);
+    }
+
     console.log("UPDATED DATA", updatedData);
     await editPost(postId, updatedData);
     await showPostFeed();
