@@ -24,8 +24,6 @@ export async function createPost(event, title, body) {
     .then((data) => {
       if (data.error) {
         console.error("Error creating post:", data.error);
-      } else {
-        console.log("Post created successfully:", data);
       }
     })
     .catch((error) => {

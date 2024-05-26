@@ -19,8 +19,6 @@ export async function deletePost(postId) {
         `Failed to delete post with ID ${postId}: ${response.statusText}`
       );
     }
-
-    console.log("Post deleted successfully", deletePostUrl);
   } catch (error) {
     console.error("Error deleting post:", error);
   }
