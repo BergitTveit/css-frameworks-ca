@@ -17,9 +17,9 @@ async function showUserProfile(profileName) {
   } catch (error) {
     console.error("Error:", error.message);
     if (name) {
-      window.location.href = `/index/index.html?name=${name}`;
+      window.location.href = `/index.html?name=${name}`;
     } else {
-      window.location.href = `/index/index.html`;
+      window.location.href = `/index.html`;
     }
   }
 }
