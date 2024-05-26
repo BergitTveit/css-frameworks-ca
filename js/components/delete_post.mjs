@@ -3,8 +3,6 @@ import { headers } from "../api/headers.mjs";
 import { getPosts } from "../api/posts/get.mjs";
 
 export async function deletePost(postId) {
-  //todo
-
   if (!postId) {
     throw new Error("No post ID found.");
   }

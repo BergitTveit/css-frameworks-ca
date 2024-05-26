@@ -7,6 +7,7 @@ export function displayPostFeed(posts) {
   posts.forEach((post) => {
     const postElement = document.createElement("div");
     postElement.classList.add("post");
+    postElement.dataset.postId = post.id;
 
     const titleElement = document.createElement("h2");
     titleElement.textContent = post.title;

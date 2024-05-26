@@ -1,6 +1,7 @@
 import { deletePost } from "../../components/delete_post.mjs";
-import { editPost } from "../../components/editPost.mjs";
+
 import { createPostHandler } from "./createPostHandler.mjs";
+import { editPostHandler } from "./editPostHandler.mjs";
 
 import { showPostFeed } from "./showPosts.mjs";
 
@@ -21,10 +22,13 @@ async function addevents() {
         return;
       }
 
-      if (event.target.id === "delete-post-button") {
-        deletePost(event);
-      } else if (event.target.id === "edit-post-button") {
-        editPost(event); // todo
+      // if (event.target.matches("button#delete-post-button")) {
+      //   event.stopPropagation();
+      //   deletePost(event);
+      // } else
+      if (event.target.matches("button#edit-post-button")) {
+        event.stopPropagation();
+        editPostHandler(event);
       } else {
         // default if smth go wromng
       }
