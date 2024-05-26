@@ -24,9 +24,6 @@ export function displayPostFeed(posts) {
     tagsElement.textContent =
       "Tags: " + (post.tags.length > 0 ? post.tags.join(", ") : "No tags");
 
-    postElement.addEventListener("click", (event) => {
-      deletePostHandler(event, post);
-    });
     const mediaElement = document.createElement("img");
     if (post.media) {
       mediaElement.src = post.media.url;

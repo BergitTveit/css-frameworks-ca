@@ -9,9 +9,6 @@ import { showPostFeed } from "./showPosts.mjs";
 //   await showPostFeed();
 // }
 
-
-
-
 export function editPostHandler(event) {
   event.preventDefault();
   const editButton = event.target;
