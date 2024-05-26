@@ -7,7 +7,6 @@ import { editPostHandler } from "./editPostHandler.mjs";
 import { showPostFeed } from "./showPosts.mjs";
 
 async function feed() {
-  console.log("start");
   await addevents();
   await showPostFeed();
 }

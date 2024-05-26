@@ -19,10 +19,6 @@ export function editPostHandler(event) {
     postTitleElement = postElement.querySelector(".post-title");
     postBodyElement = postElement.querySelector("p");
     postMediaElement = postElement.querySelector("img");
-
-    console.log("Post title element:", postTitleElement);
-    console.log("Post body element:", postBodyElement);
-    console.log("Post media element:", postMediaElement);
   } catch (error) {
     console.error("Error accessing Post Elements:", error);
   }
@@ -85,24 +81,6 @@ export function editPostHandler(event) {
       };
     }
 
-    console.log("Type of updatedData:", typeof updatedData);
-
-    // Log the type of each property inside updatedData
-    console.log("Type of title:", typeof updatedData.title);
-    console.log("Type of body:", typeof updatedData.body);
-    console.log(
-      "Type of tags:",
-      Array.isArray(updatedData.tags) ? "Array" : typeof updatedData.tags
-    );
-    console.log("Type of media:", typeof updatedData.media);
-
-    // If media is an object, log the types of its properties
-    if (updatedData.media && typeof updatedData.media === "object") {
-      console.log("Type of media.url:", typeof updatedData.media.url);
-      console.log("Type of media.alt:", typeof updatedData.media.alt);
-    }
-
-    console.log("UPDATED DATA", updatedData);
     await editPost(postId, updatedData);
     await showPostFeed();
   });
