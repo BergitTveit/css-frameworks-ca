@@ -1,0 +1,14 @@
+$primary: rgb(149, 168, 169);
+$secondary: rgb(27, 94, 48);
+
+$bg-primary: pink;
+
+$background: "../../assets/img/boulder.jpg";
+
+body {
+  background-image: url($background);
+  background-size: cover;
+  background-position: center;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
